@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Ángel Martínez Otero">
+    <title>Products</title>
+    <!-- CDN SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- CDN Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <!-- Mobile menu button-->
+                    <button type="button"
+                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="absolute -inset-0.5"></span>
+                        <span class="sr-only">Open main menu</span>
+                        <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                        <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                        <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" aria-hidden="true" data-slot="icon">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex shrink-0 items-center">
+                        <img class="h-8 w-auto"
+                            src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
+                            alt="Your Company">
+                    </div>
+                    <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                aria-current="page">Dashboard</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                            <a href="#"
+                                class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button type="button"
+                        class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                        Edit Profile
+                    </button>
+
+                    <!-- Profile dropdown -->
+                    <div class="relative ml-3">
+                        <div>
+                                <img class="size-8 rounded-full"
+                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                    alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+            <div class="space-y-1 px-2 pb-3 pt-2">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
+                    aria-current="page">Dashboard</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                <a href="#"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+            </div>
+        </div>
+    </nav>
+    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
+        <div class="mt-18 flex justify-center">
+            <h2
+                class="py-10 text-4xl tracking-tight leading-10 font-extrabold text-gray-900 sm:text-5xl sm:leading-none md:text-6xl">
+                <span class="text-indigo-600">Products</span>
+            </h2>
+        </div>
+        <div class="mx-auto max-w-screen-2xl px-4 lg:px-12">
+            <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+                <div
+                    class="flex flex-col md:flex-row items-stretch md:items-center md:space-x-3 space-y-3 md:space-y-0 justify-end mx-4 py-4 border-t dark:border-gray-700">
+                    <div
+                        class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+                        <a href="new.php" id="createProductButton" data-modal-toggle="createProductModal"
+                            class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                            <svg class="h-3.5 w-3.5 mr-1.5 -ml-1" fill="currentColor" viewbox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path clip-rule="evenodd" fill-rule="evenodd"
+                                    d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+                            </svg>
+                            Add product
+                        </a>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="p-4">Id</th>
+                                <th scope="col" class="p-4">Name</th>
+                                <th scope="col" class="p-4">Type</th>
+                                <th scope="col" class="p-4">Stock</th>
+                                <th scope="col" class="p-4">Description</th>
+                                <th scope="col" class="p-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">147
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/caja_organizadora.png" alt="Current product photo" />
+                                        Caja Organizadora
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Bazar</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-yellow-700"></div>
+                                        40
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Caja de
+                                    plástico resistente para almacenamiento.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="147" hidden />
+                                            <a href="update.php?id=147" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">148
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/jabon.png" alt="Current product photo" />
+                                        Jabón EcoFriendly
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Limpieza</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-teal-700"></div>
+                                        50
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Jabón
+                                    biodegradable con aroma a lavanda.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="148" hidden />
+                                            <a href="update.php?id=148" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">149
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/especias.png" alt="Current product photo" />
+                                        Set de Especias
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Alimentacion</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-red-700"></div>
+                                        20
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Set con 12
+                                    especias esenciales para cocinar.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="149" hidden />
+                                            <a href="update.php?id=149" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">150
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/cafetera.png" alt="Current product photo" />
+                                        Cafetera Italiana
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Bazar</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-red-700"></div>
+                                        10
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Cafetera de
+                                    aluminio para café espresso.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="150" hidden />
+                                            <a href="update.php?id=150" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">151
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/velas.png" alt="Current product photo" />
+                                        Paquete de Velas
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Bazar</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-yellow-700"></div>
+                                        25
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Velas
+                                    aromáticas para relajación y meditación.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="151" hidden />
+                                            <a href="update.php?id=151" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">152
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/champu.png" alt="Current product photo" />
+                                        Champú Orgánico
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Limpieza</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-yellow-700"></div>
+                                        35
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Champú natural
+                                    sin sulfatos, ideal para todo tipo de cabello.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="152" hidden />
+                                            <a href="update.php?id=152" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">153
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/chocolate.png" alt="Current product photo" />
+                                        Barra de Chocolate
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Alimentacion</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-green-700"></div>
+                                        100
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Chocolate negro
+                                    70% cacao.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="153" hidden />
+                                            <a href="update.php?id=153" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">154
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/toallas.png" alt="Current product photo" />
+                                        Toallas Microfibra
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Limpieza</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-teal-700"></div>
+                                        60
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Paquete de 3
+                                    toallas súper absorbentes.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="154" hidden />
+                                            <a href="update.php?id=154" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">155
+                                </td>
+                                <th scope="row"
+                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="shrink-0 flex items-center">
+                                        <img id='preview_img' class="h-12 w-12 object-cover rounded-full mr-3"
+                                            src="img/aceite.png" alt="Current product photo" />
+                                        Aceite de Oliva
+                                    </div>
+                                </th>
+                                <td class="px-4 py-3">
+                                    <span
+                                        class="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">Alimentacion</span>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <div class="flex items-center">
+                                        <div class="h-4 w-4 rounded-full inline-block mr-2 bg-yellow-700"></div>
+                                        30
+                                    </div>
+                                </td>
+                                <td class="px-4 py-3 font-medium text-gray-900 max-w-xs dark:text-white">Botella de
+                                    aceite de oliva virgen extra, 500ml.</td>
+                                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <form action="delete.php" method="POST">
+                                        <div class="flex items-center space-x-4">
+                                            <input type="text" name="id" value="155" hidden />
+                                            <a href="update.php?id=155" data-drawer-target="drawer-update-product"
+                                                data-drawer-show="drawer-update-product"
+                                                aria-controls="drawer-update-product"
+                                                class="py-2 px-3 flex items-center text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path
+                                                        d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Edit
+                                            </a>
+                                            <button type="submit" data-modal-target="delete-modal"
+                                                data-modal-toggle="delete-modal"
+                                                class="flex items-center text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 -ml-0.5"
+                                                    viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

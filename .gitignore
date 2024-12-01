@@ -1,0 +1,6 @@
+/vendor
+.env
+/public/img/cars/*.*
+!/public/img/cars/default.png
+/public/img/users/*.*
+!/public/img/users/default.png
