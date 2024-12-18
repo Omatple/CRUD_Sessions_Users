@@ -2,7 +2,7 @@
 
 namespace App\Utils;
 
-enum Brand: string
+enum CarBrand: string
 {
     case Toyota = 'Toyota';
     case Ford = 'Ford';
@@ -79,7 +79,7 @@ enum Brand: string
     case Daihatsu = 'Daihatsu';
     case SsangYong = 'SsangYong';
 
-    public function toString(): string
+    public function getName(): string
     {
         return $this->value;
     }

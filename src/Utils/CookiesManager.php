@@ -6,15 +6,17 @@ class CookiesManager
 {
     public static function create(string $name, string $value, int $expiryDays = 365): bool
     {
-        return setcookie($name, $value, time() + $expiryDays * 60 * 60 * 24, "/");
+        $expiryTime = time() + ($expiryDays * 86400);
+        return setcookie($name, $value, $expiryTime, "/");
     }
 
     public static function delete(string $name): bool
     {
-        return setcookie($name, "", time() - (60 * 60 * 24), "/");
+        $expiryTime = time() - 86400;
+        return setcookie($name, "", $expiryTime, "/");
     }
 
-    public static function getCookie(string $name): string|false
+    public static function get(string $name): string|false
     {
         return $_COOKIE[$name] ?? false;
     }
@@ -29,8 +31,8 @@ class CookiesManager
         return self::delete("remember");
     }
 
-    public static function existsRemember(): bool
+    public static function hasRemember(): bool
     {
-        return self::getCookie("remember");
+        return self::get("remember") !== false;
     }
 }

@@ -4,13 +4,13 @@ namespace App\Utils;
 
 class Navigation
 {
-    public static function redirectTo(string $namePage): void
+    public static function redirect(string $pageName): void
     {
-        header("Location: " . $namePage);
+        header("Location: " . $pageName);
         exit();
     }
 
-    public static function refresh(): void
+    public static function reloadPage(): void
     {
         header("Location: " . $_SERVER['PHP_SELF']);
         exit();

@@ -4,21 +4,21 @@ namespace App\Utils;
 
 class NotificationAlert
 {
-    public static function showAlert(): void
+    public static function displayAlert(): void
     {
-        if ($message = $_SESSION["message"] ?? false) {
-            echo <<< HTML
+        if ($message = $_SESSION['message'] ?? null) {
+            echo <<<HTML
                 <script>
                     Swal.fire({
-                      position: "center",
-                      icon: "success",
-                      title: "$message",
-                      showConfirmButton: false,
-                      timer: 2000
-                    });                    
+                        position: "center",
+                        icon: "success",
+                        title: "{$message}",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 </script>
             HTML;
-            unset($_SESSION["message"]);
+            unset($_SESSION['message']);
         }
     }
 }

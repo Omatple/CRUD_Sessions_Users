@@ -7,7 +7,7 @@ enum Role: string
     case Admin = "Admin";
     case User = "User";
 
-    public function toString(): string
+    public function getName(): string
     {
         return $this->value;
     }
